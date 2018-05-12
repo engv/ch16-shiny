@@ -24,6 +24,7 @@ ui <- fluidPage(
   
   # A `textOutput()` output of a calculated value labeled `cost`
   textOutput("cost")
+  textMessage("message")
 )
 
 
@@ -36,6 +37,7 @@ server <- function(input, output){
   # So it looks nice, paste a "$" in front of it!
   output$cost <- renderText({
     return(paste0("$", input$price * input$quantity))
+    message <- paste(input$name, "the price is ", x)
   })
 } 
 
